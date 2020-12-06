@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Static Template</title>
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+        box-sizing:border-box;
+      }
+      .quiz{
+        width:500px;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        background-color: #222831;
+        text-align: center;
+        font-size: 1.2rem;
+      }
+      .head,.result{
+        color: white;
+      }
+      .inner{
+        background-color:#bbbbbb;
+      }
+      button{
+        background-color: #bbbbbb;
+        border: 0;
+        margin: 0;
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="quiz">
+        <div class="head">
+            <h1>Quiz</h1>
+        </div>
+        <div class="inner">
+            <p>Most Used Javascript Framework?</p>
+            <input type="radio" id="qa1" name="ques1">React</input>
+            <input type="radio"  name="ques1">Vue</input>
+            <p>Biggest Social Media Platform?</p>
+            <input type="radio" name="ques2">Instagram</input>
+            <input type="radio" id="qa2" name="ques2">Facebook</input>
+            <p>Richest Person in world?</p>
+            <input type="radio" id="qa3" name="ques3">Jeff Bezos</input>
+            <input type="radio" name="ques3">Bill Gates</input>
+        </div>
+        <br>
+        <div class="end">
+            <button id="check">Check result</button>
+            <p class="result"></p>
+        </div>
+    </div>
+    
+    
+  </body>
+  <script>
+    score=0;
+    $("#check").click(function(){
+      var check = true;
+        $("input:radio").each(function(){
+            var name = $(this).attr("name");
+            if($("input:radio[name="+name+"]:checked").length == 0){
+                check = false;
+            }
+        });
+ 
+        if(check){
+            
+        }else{
+            alert('Please select at least one answer in each question.');
+        }
+      if($('#qa1').is(':checked')) 
+        {  
+          
+          ++score;
+          
+        }
+      if($('#qa2').is(':checked')) 
+        {  
+          ++score;
+          
+        }
+      if($('#qa3').is(':checked')) 
+        {  
+          ++score;
+          
+        }
+      $(".result").text("Score:"+score);
+      score=0;
+    });
+
+        
+
+  </script>
+</html>
